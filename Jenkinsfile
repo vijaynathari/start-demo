@@ -7,12 +7,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh './mvnw spring-boot:run'
+                sh './mvn clean package -DskipTests spring-boot:repackage'
             }
         }
         stage('Deliver') {
             steps {
-                sh './mvnw spring-boot:run'
+                sh './deliver.sh'
             }
         }
     }
