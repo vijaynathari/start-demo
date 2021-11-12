@@ -14,8 +14,8 @@ pipeline {
         stage('Deliver') {
             steps {
                 sh 'cp /Users/vnathari/.jenkins/workspace/test-start-demo/target/demo-0.0.1-SNAPSHOT.war /usr/local/Cellar/tomcat/10.0.12/libexec/webapps/demo.war'
-                sh './usr/local/Cellar/tomcat/10.0.12/libexec/bin/shutdown.sh'
-                sh './usr/local/Cellar/tomcat/10.0.12/libexec/bin/startup.sh'
+                sh '. /usr/local/Cellar/tomcat/10.0.12/libexec/bin/shutdown.sh'
+                sh '. /usr/local/Cellar/tomcat/10.0.12/libexec/bin/startup.sh'
             }
         }
     }
