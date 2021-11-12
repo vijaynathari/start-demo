@@ -7,13 +7,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package -DskipTests spring-boot:repackage'
+                sh 'mvn clean'
+                sh 'mvn install -DskipTests'
             }
         }
         stage('Deliver') {
             steps {
-                sh 'chmod 777 deliver.sh'
-                sh './deliver.sh'
+                sh 'cp /target/demo-0.0.1-SNAPSHOT.war /usr/local/Cellar/tomcat/10.0.12/libexec/webapps/demo.war'
             }
         }
     }
